@@ -3,6 +3,7 @@ package baseball.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Numbers {
 
@@ -34,6 +35,16 @@ public class Numbers {
         return new Numbers(numbers.stream()
                 .map(Number::from)
                 .toList());
+    }
+
+    private Number getNumberAtPosition(int position) {
+        return numbers.get(position);
+    }
+
+    public int calculateMatchNumberCount(Numbers numbers) {
+        return (int) IntStream.range(0, this.numbers.size())
+                .filter(i -> this.numbers.get(i).equals(numbers.getNumberAtPosition(i)))
+                .count();
     }
 
     private void validateNumbers(List<Number> numbers) {
