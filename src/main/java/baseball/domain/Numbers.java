@@ -37,6 +37,17 @@ public class Numbers {
                 .toList());
     }
 
+    private boolean contain(Number number) {
+        return numbers.contains(number);
+    }
+
+    public int calculateSameNumberCount(Numbers numbers) {
+        return this.numbers.stream()
+                .filter(numbers::contain)
+                .toList()
+                .size();
+    }
+
     private Number getNumberAtPosition(int position) {
         return numbers.get(position);
     }
