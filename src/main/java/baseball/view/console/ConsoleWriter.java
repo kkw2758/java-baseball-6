@@ -9,6 +9,10 @@ public final class ConsoleWriter {
         printlnMessage(String.format(message, args));
     }
 
+    public static void printFormat(String message, Object... args) {
+        printMessage(String.format(message, args));
+    }
+
     public static void printMessage(String message) {
         System.out.print(message);
     }
