@@ -12,4 +12,29 @@ public class OutputView {
     public static void printStartGameMessage() {
         ConsoleWriter.printlnMessage(START_GAME_MESSAGE);
     }
+
+    public static void printHint(int strikeCount, int ballCount, boolean nothing) {
+        if (nothing) {
+            printNothingMessage();
+            return;
+        }
+        printBallMessage(ballCount);
+        printStrikeMessage(strikeCount);
+        ConsoleWriter.printlnMessage("");
+    }
+
+    private static void printStrikeMessage(int strikeCount) {
+        ConsoleWriter.printlnFormat(STRIKE_MESSAGE, strikeCount);
+    }
+
+    private static void printBallMessage(int ballCount) {
+        if (ballCount != 0) {
+            ConsoleWriter.printFormat(BALL_MESSAGE, ballCount);
+            ConsoleWriter.printMessage(" ");
+        }
+    }
+
+    private static void printNothingMessage() {
+        ConsoleWriter.printlnMessage(NOTHING_MESSAGE);
+    }
 }
