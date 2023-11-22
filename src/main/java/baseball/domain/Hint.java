@@ -1,5 +1,8 @@
 package baseball.domain;
 
+import baseball.domain.Numbers.ComputerNumbers;
+import baseball.domain.Numbers.UserNumbers;
+
 public class Hint {
 
     private final int strikeCount;
@@ -10,10 +13,12 @@ public class Hint {
         this.ballCount = ballCount;
     }
 
-    public static Hint of(Numbers computerNumbers, Numbers userNumbers) {
+    public static Hint of(ComputerNumbers computerNumbers, UserNumbers userNumbers) {
+        int matchNumberCount = computerNumbers.calculateMatchNumberCount(userNumbers);
+        int sameNumberCount = computerNumbers.calculateSameNumberCount(userNumbers);
         return new Hint(
-                computerNumbers.calculateMatchNumberCount(userNumbers),
-                computerNumbers.calculateSameNumberCount(userNumbers)
+                matchNumberCount,
+                sameNumberCount - matchNumberCount
         );
     }
 
