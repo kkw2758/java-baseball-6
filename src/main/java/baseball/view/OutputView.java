@@ -13,6 +13,10 @@ public class OutputView {
         ConsoleWriter.printlnMessage(START_GAME_MESSAGE);
     }
 
+    public static void printGameEndMessage() {
+        ConsoleWriter.printlnMessage(GAME_END_MESSAGE);
+    }
+
     public static void printHint(int strikeCount, int ballCount, boolean nothing) {
         if (nothing) {
             printNothingMessage();
